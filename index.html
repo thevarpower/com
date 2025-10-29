@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thevar Power — Clean Energy for Every Roof</title>
+  <meta name="description" content="Modern solar solutions: rooftop, commercial, batteries, EV chargers. Free site survey and savings estimate." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+
+  <style>
+    /* ===== CSS RESET (trimmed) ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    img,svg,video{display:block;max-width:100%;height:auto}
+    button,input,select,textarea{font:inherit}
+
+    /* ===== THEME ===== */
+    :root{
+      --bg:#0b1220;           /* dark gradient base */
+      --bg-2:#0f172a;
+      --panel:#0f1b2d;
+      --text:#e5f0ff;
+      --muted:#93a4c3;
+      --brand:#0ea5e9;        /* sky-500 */
+      --brand-2:#22c55e;      /* green-500 */
+      --accent:#f59e0b;       /* amber-500 */
+      --card:#0d1426;
+      --ring:0 0 0 3px rgba(14,165,233,.25);
+      --shadow:0 10px 30px rgba(2,6,23,.35);
+      --radius:18px;
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc; --bg-2:#eef2ff; --panel:#ffffff; --text:#0b1220; --muted:#475569;
+      --card:#ffffff; --shadow:0 10px 30px rgba(2,6,23,.08);
+    }
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; color:var(--text); background:linear-gradient(180deg,var(--bg),var(--bg-2));}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin-inline:auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:12px;border:1px solid transparent;font-weight:600;cursor:pointer;transition:.25s box-shadow,.25s transform,.25s background-color}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),#38bdf8);color:white;box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent;border-color:rgba(148,163,184,.25)}
+    .badge{display:inline-block;padding:.35rem .6rem;border-radius:999px;font-size:.78rem;border:1px solid rgba(148,163,184,.35);color:var(--muted)}
+    .chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(148,163,184,.12);color:var(--muted);border-radius:999px;padding:.35rem .55rem;font-size:.8rem}
+
+    /* ===== HEADER ===== */
+    header{position:sticky;top:0;z-index:50;background:rgba(12,18,32,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(148,163,184,.12)}
+    [data-theme="light"] header{background:rgba(255,255,255,.7)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .nav-links{display:flex;gap:1rem;align-items:center;font-weight:600;color:var(--muted)}
+    .nav-links a{padding:.6rem .8rem;border-radius:10px}
+    .nav-links a:hover{background:rgba(148,163,184,.15)}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:900;letter-spacing:.3px}
+    .logo svg{width:28px;height:28px}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;padding:88px 0 48px;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-30% -10%;background:radial-gradient(600px 220px at 70% -10%,rgba(14,165,233,.25),transparent 60%), radial-gradient(400px 180px at 20% 10%,rgba(34,197,94,.25),transparent 60%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+    .headline{font-size:clamp(1.8rem,2.8vw,3rem);line-height:1.1;margin:0 0 12px}
+    .sub{font-size:1.06rem;color:var(--muted);max-width:56ch}
+    .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:18px}
+    .hero-card{background:linear-gradient(180deg,rgba(148,163,184,.12),transparent);border:1px solid rgba(148,163,184,.2);border-radius:var(--radius);padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat{background:var(--card);border:1px solid rgba(148,163,184,.18);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .stat h3{margin:0;font-size:1.8rem}
+    .stat p{margin:.25rem 0 0;color:var(--muted)}
+
+    /* ===== SECTIONS ===== */
+    section{padding:56px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .section-title{font-size:1.6rem;margin:0}
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.18);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .card h4{margin:.2rem 0 .4rem}
+    .card p{color:var(--muted);margin:0}
+
+    /* ===== SERVICES ===== */
+    .icon{width:28px;height:28px}
+    .service{display:flex;gap:14px}
+    .service .icon-wrap{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(34,197,94,.15));border:1px solid rgba(148,163,184,.25)}
+
+    /* ===== PRODUCTS ===== */
+    .product{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}
+    .kpi{display:flex;gap:10px;align-items:center}
+    .kpi span{font-weight:800}
+
+    /* ===== PROJECTS ===== */
+    .projects{grid-template-columns:repeat(12,1fr)}
+    .tile{grid-column:span 4;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(148,163,184,.2);background:linear-gradient(180deg,rgba(148,163,184,.1),transparent)}
+    .tile .meta{position:absolute;inset:auto 10px 10px 10px;background:rgba(2,6,23,.55);color:#e5f0ff;padding:10px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.25)}
+    [data-theme="light"] .tile .meta{background:rgba(255,255,255,.7);color:#0b1220}
+    .tile .img{aspect-ratio:16/11;background:
+      conic-gradient(from 120deg,var(--brand),transparent 35%),
+      radial-gradient(1200px 100px at 50% -20%,rgba(255,255,255,.35),transparent 40%),
+      linear-gradient(135deg,#0b1220,#0f172a)}
+    [data-theme="light"] .tile .img{background:linear-gradient(135deg,#e2f2ff,#f1fff1)}
+
+    /* ===== PRICING ===== */
+    .price{font-size:2rem;font-weight:900}
+    .features{display:grid;gap:8px;margin-top:10px}
+    .features .chip{border:1px dashed rgba(148,163,184,.35)}
+
+    /* ===== FAQ ===== */
+    .faq details{background:var(--card);border:1px solid rgba(148,163,184,.2);border-radius:14px;padding:12px}
+    .faq summary{cursor:pointer;font-weight:700}
+
+    /* ===== CONTACT ===== */
+    form{display:grid;gap:12px}
+    input,textarea,select{background:transparent;border:1px solid rgba(148,163,184,.3);border-radius:12px;padding:.8rem;color:inherit}
+    input:focus,textarea:focus,select:focus,button:focus{outline:none;box-shadow:var(--ring)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    /* ===== FOOTER ===== */
+    footer{padding:36px 0;border-top:1px solid rgba(148,163,184,.2);color:var(--muted)}
+
+    /* ===== UTIL ===== */
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    .hide-mobile{display:block}
+    .show-mobile{display:none}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(148,163,184,.3),transparent);margin:22px 0}
+    .floating{
+      position:fixed;right:14px;bottom:14px;z-index:60;display:grid;gap:10px
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px){
+      .hero-grid,.product{grid-template-columns:1fr}
+      .cols-3{grid-template-columns:1fr 1fr}
+      .cols-4{grid-template-columns:1fr 1fr}
+      .hide-mobile{display:none}
+      .show-mobile{display:block}
+      .split{grid-template-columns:1fr}
+      .tile{grid-column:span 6}
+    }
+    @media (max-width: 560px){
+      .cols-3,.cols-4{grid-template-columns:1fr}
+      .tile{grid-column:span 12}
+    }
+    /* Smoothly scale the text of each list item on hover */
+.product.card ul li {
+  transition: transform 0.3s ease;  /* animate the scaling */
+  transform-origin: center;         /* scale from the middle */
+  cursor: pointer;                  /* optional: show pointer */
+}
+
+.product.card ul li:hover {
+  transform: scale(1.1);            /* slightly enlarge the text */
+}
+#privacy-policy {
+  padding: 60px 20px;
+}
+#privacy-policy h2 {
+  margin-bottom: 20px;
+}
+/* === Fade-up background image at top, centered === */
+/* === Fixed background image === */
+/* === Fixed background image === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("sp3.png") center center no-repeat;
+  background-size: contain;     /* or 'cover' */
+  opacity: var(--bg-opacity, 0.3); /* default 0.3 */
+  transition: opacity 0.3s ease;   /* smooth fade */
+  z-index: -1;
+}
+
+/* Keyframes for subtle up-down and fade effect */
+@keyframes fadeSlide {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.02);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+<!-- ===== HEADER ===== -->
+
+<header>
+ <div class="container nav">
+    <a class="logo" href="#top" aria-label="Thevar Power"
+       style="display:inline-flex;align-items:center;font-size:1.8rem;gap:0.4em;">
+      <img src="favicon.png" alt="Thevar Power Logo"
+           style="width:1.2em;height:1.2em;">
+      <span>Thevar Power</span>
+    </a>
+    
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#projects">Projects</a> 
+      <a href="about.html">About Us</a>
+      <a href="#privacy-policy">Privacy Policy</a>
+      <a href="#contact" class="btn btn-primary">Get Quote</a>
+      <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">🌗</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO 1 ===== -->
+ <section class="hero" style="
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+  min-height: 100vh;
+">
+  <div class="hero-left" style="flex: 0 0 auto;">
+    <img src="pmsurya.png" alt="Solar Project"
+         style="display:block; width:100%; max-width:800px; height:auto; border-radius:12px;">
+  </div>
+
+  <div class="hero-right" style="flex: 1; min-width:250px;">
+    <h2 style="font-size:2rem; margin-bottom:1rem;">സൗരോർജ്ജം ഉപയോഗിച്ച് വൈദ്യുതി ചെലവ് കുറയ്ക്കൂ</h2>
+    <p style="font-size:1.1rem; line-height:1.6;">
+      കെ.എസ്.ഇ.ബി അംഗീകൃത സബ്സിഡി പദ്ധതിയിലൂടെ
+      <strong>40% വരെ കേന്ദ്രസർക്കാർ  സർക്കാർ സബ്സിഡി</strong> നേടാം.
+      നിങ്ങളുടെ വീടിന് ഇന്ന് തന്നെ സൗരോർജ്ജം തിരഞ്ഞെടുക്കൂ.
+    </p>
+  </div>
+</section>
+
+  <!-- ===== HERO 2 ===== -->
+  <main id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Save more with solar</span>
+        <h1 class="headline">Clean energy, lower bills — <br class="hide-mobile">
+          <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">designed for your roof.</span>
+        </h1>
+        <p class="sub">From residential rooftops to large commercial solar arrays, Thevar Power provides complete solar installation in Thrissur and across Kerala.
+We design, install, and maintain end-to-end solar power systems with bank-grade safety standards and real-time performance monitoring to deliver maximum energy savings and long-term reliability.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">Get a free site survey</a>
+          <a href="#projects" class="btn btn-ghost">See recent installs</a>
+        </div>
+        <div class="divider"></div>
+        <div class="row" aria-label="trust-marks">
+          <span class="chip">MNRE-Compliant</span>
+          <span class="chip">ISO 9001:2015</span>
+          <span class="chip">25-Year Panel Warranty</span>
+          <span class="chip">0% EMI Options</span>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="stat">
+          <h3>8208 kW</h3>
+          <p>Total installed capacity (up to)</p>
+        </div>
+        <div class="stat">
+          <h3>₹3.4 Cr</h3>
+          <p>Customer savings (annualized)</p>
+        </div>
+        <div class="stat">
+          <h3>4.9★</h3>
+          <p>Average customer rating</p>
+        </div>
+        <div class="stat">
+          <h3>72 hrs</h3>
+          <p>Typical install time</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== SERVICES ===== -->
+
+  <section id="services" class="reveal">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Services</h2>
+        <span class="badge">Design • Install • Maintain</span>
+      </div>
+      <div class="grid cols-3">
+        <article class="card service">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M5 8h14M7 4h10M6 16h12M8 20h8"/></svg>
+          </div>
+          <div>
+            <h4>Rooftop Solar (On-Grid / Off-Grid / Hybrid)</h4>
+            <p>High-efficiency panels, MNRE subsidies support, net-metering paperwork handled end-to-end.</p>
+          </div>
+        </article>
+        <article class="card service">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V6zm4 0V4h8v2"/></svg>
+          </div>
+          <div>
+            <h4>Battery Storage</h4>
+            <p>Lithium-ion systems for backup and peak-shaving. Smart BMS with app monitoring.</p>
+          </div>
+        </article>
+        <article class="card service">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 20V8l6-4 6 4v12M6 12h12M9 16h6"/></svg>
+          </div>
+          <div>
+            <h4>Commercial & Industrial</h4>
+            <p>MW-scale EPC with safety compliance, yield guarantees, and O&amp;M contracts.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS / HIGHLIGHTS ===== -->
+<section id="products" style="margin:2rem auto;max-width:900px;">
+  <style>
+    /* Pop / hover effect */
+    .product-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+    /* Light & dark theme backgrounds */
+    [data-theme="dark"] .product-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5f0ff;
+    }
+    [data-theme="light"] .product-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: #111;
+    }
+    .product-card h3,
+    .product-card p,
+    .product-card span { margin: 0; }
+  </style>
+
+  <div style="margin-bottom:1.5rem;">
+    <h2 style="font-size:1.8rem;font-weight:700;margin:0;">Products & Highlights</h2>
+    <span style="display:inline-block;margin-top:.3rem;padding:.3rem .8rem;font-size:.8rem;
+                 border-radius:1rem;background:#e5e7eb;color:#111;">Tier-1 Components</span>
+  </div>
+
+  <div style="display:grid;gap:1rem;width:100%;">
+
+    <!-- Panels -->
+    <a href="panels.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3 style="margin-top:0;margin-bottom:.4rem;font-size:1.2rem;">High-Efficiency Mono-PERC Panels</h3>
+      <p style="margin:0 0 .8rem;">Up to 22% module efficiency with anti-PID & anti-soiling coatings.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+        <span style="background:#f1f5f9;padding:.3rem .6rem;border-radius:.6rem;font-size:.85rem;">⚡ 450–600W per panel</span>
+        <span style="background:#f1f5f9;padding:.3rem .6rem;border-radius:.6rem;font-size:.85rem;">🕑 25-yr performance</span>
+        <span style="background:#f1f5f9;padding:.3rem .6rem;border-radius:.6rem;font-size:.85rem;">💧 IP68 junction boxes</span>
+      </div>
+    </a>
+
+    <!-- Inverters -->
+    <a href="inverter.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3>Inverters</h3>
+    </a>
+
+    <!-- Lithium Batteries -->
+    <a href="lithium-battery.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3>Lithium Batteries</h3>
+    </a>
+    <!-- Ups -->
+    <a href="ups.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3>UPS</h3>
+    </a>
+
+    <!-- Solar Street Light -->
+    <a href="solar-street-light.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3>Solar Street Light</h3>
+    </a>
+
+    <!-- Solar Water Heater -->
+    <a href="solar-water-heater.html" class="product-card" style="width:100%;padding:1rem;border-radius:1rem;">
+      <h3>Solar Water Heater</h3>
+    </a>
+
+  </div>
+</section>
+
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="reveal">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Recent Projects</h2>
+        <span class="badge">Residential • Commercial</span>
+      </div>
+      <div class="grid projects">
+  <figure class="tile">
+    <img src="sp20 (2).jpeg" alt="best solar company in Thrissur 8kW rooftop system">
+    <figcaption class="meta">10kW Rooftop • Digital World • Thrissur </figcaption>
+  </figure>
+
+  <figure class="tile">
+    <img src="sp7.jfif" alt="100kW factory rooftop">
+    <figcaption class="meta">8kW • Masjid • Thrissur </figcaption>
+  </figure>
+
+  <figure class="tile">
+    <img src="sp20 (16).jpeg" alt="Hybrid with battery">
+    <figcaption class="meta">4kw • Sundharan • Thrissur </figcaption>
+  </figure>
+</div>
+
+  </section>
+
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="reveal">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">What customers say</h2>
+        <span class="badge">Real feedback</span>
+      </div>
+      <div class="grid cols-3">
+        <blockquote class="card"><p>“Smooth process from survey to net-metering. We saw our bill drop in the first month.”</p><footer class="muted">— Anu M, Thrissur</footer></blockquote>
+        <blockquote class="card"><p>“Their monitoring app & service are top-notch. Team finished our 100kW plant ahead of schedule.”</p><footer class="muted">— Shahul H, Kochi</footer></blockquote>
+        <blockquote class="card"><p>“Power cuts no longer affect us thanks to the hybrid + battery setup.”</p><footer class="muted">— Divya R, Palakkad</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="faq reveal">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">FAQ</h2>
+        <a href="#contact" class="btn btn-ghost">Still have questions?</a>
+      </div>
+      <div class="grid cols-3">
+        <details class="card"><summary>How long is the warranty?</summary><p>Panels: 25-year performance, 10-12 year product. Inverters: 5-10 years. Batteries: 5-8 years depending on model.</p></details>
+        <details class="card"><summary>Do you help with subsidies & net-metering?</summary><p>Yes. We handle application, documentation, and DISCOM coordination.</p></details>
+        <details class="card"><summary>Will my roof support solar?</summary><p>Most reinforced concrete roofs do. We conduct a structural check during the site survey.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="reveal">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Get your free savings estimate</h2>
+        <span class="badge">No obligation • Takes 1 minute</span>
+      </div>
+      <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
+        <form action="mailto:info@thevarpower.com" method="post" enctype="text/plain" class="card" id="leadForm">
+          <div class="split">
+            <label>
+              <span>Name</span>
+              <input required type="text" name="name" placeholder="Your full name" />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input required type="tel" name="phone" placeholder="91XXXXXXXXXX" pattern="[0-9]{10,13}" />
+            </label>
+          </div>
+          <div class="split">
+            <label>
+              <span>City</span>
+              <input type="text" name="city" placeholder="Thrissur / Kochi / …" />
+            </label>
+            <label>
+              <span>Property Type</span>
+              <select name="type">
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Industrial</option>
+                <option>Institution</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span>Average Monthly Bill (₹)</span>
+            <input type="number" name="bill" placeholder="e.g., 3500" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4" placeholder="Tell us about your roof, phase (1/3), backup needs…"></textarea>
+          </label>
+          <div class="row">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="reset" class="btn btn-ghost">Clear</button>
+          </div>
+          <p id="formMsg" class="muted" aria-live="polite"></p>
+        </form>
+        <aside class="card">
+          <h4>Contact</h4>
+          <p class="muted">Thevar Power Pvt Ltd<br>Thrissur, Kerala</p>
+          <p><strong>✉️</strong> info@thevarpower.com<br><strong>📞</strong> +91 93834 00002<br><strong>🕒</strong> Mon–Sat, 9:30am–6pm</p>
+          <div class="divider"></div>
+          <h4>Why choose us?</h4>
+          <ul>
+            <li>MNRE-empanelled partners</li>
+            <li>Local service team</li>
+            <li>App-based monitoring</li>
+            <li>Clean installs, tidy cabling</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <section id="privacy-policy" class="reveal">
+  <div class="container">
+    <h2>Privacy Policy</h2>
+    <p>
+      We respect your privacy and are committed to protecting your personal data.
+      This policy explains how we collect, use, and safeguard the information you
+      provide while using our website.
+    </p>
+
+    <h3>Information We Collect</h3>
+    <p>
+      We may collect personal details such as your name, email address, and phone
+      number when you contact us or fill out forms.
+    </p>
+
+    <h3>How We Use Your Information</h3>
+    <ul>
+      <li>To respond to your inquiries and provide requested services.</li>
+      <li>To improve our website’s performance and user experience.</li>
+      <li>To send updates or promotional content (only if you opt-in).</li>
+    </ul>
+
+    <h3>Data Security</h3>
+    <p>
+      We implement reasonable technical and organizational measures to keep your
+      personal data safe and prevent unauthorized access.
+    </p>
+
+    <h3>Your Rights</h3>
+    <p>
+      You can request access to, correction of, or deletion of your personal data
+      at any time by contacting us.
+    </p>
+
+    <p>
+      For questions about this policy, please reach out via our contact page.
+    </p>
+  </div>
+</section>
+
+
+
+  <footer>
+    <div class="container row" style="align-items:center;justify-content:space-between">
+      <p>© <span id="year"></span> Thevar Power. All rights reserved.</p>
+      <div class="row">
+        <a href="#faq">FAQ</a>
+        <span aria-hidden="true">•</span>
+        <span aria-hidden="true">•</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Actions -->
+  <div class="floating">
+    <a class="btn btn-primary" href="https://wa.me/919383400002" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+919383400002" aria-label="Call us">Call</a>
+  </div>
+
+  
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved) document.documentElement.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', cur);
+      localStorage.setItem('theme', cur);
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } }
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Lightweight form UX (client-side only)
+    const form = document.getElementById('leadForm');
+    const msg = document.getElementById('formMsg');
+    form?.addEventListener('submit', (e) => {
+      msg.textContent = 'Opening your email app… (If it doesn\'t open, please email info@thevarpower.com)';
+    });
+  </script>
+  <script>
+(function() {
+  let scrollTimer;
+  const normalOpacity = 0.3;   // original opacity when not scrolling
+  const scrollingOpacity = 0.1; // opacity while scrolling
+  const delay = 150;           // ms after scroll stops to restore opacity
+
+  // Set initial value
+  document.body.style.setProperty("--bg-opacity", normalOpacity);
+
+  window.addEventListener("scroll", () => {
+    // Immediately lower opacity when scroll starts
+    document.body.style.setProperty("--bg-opacity", scrollingOpacity);
+
+    // Clear any existing timer so we don’t fire too early
+    clearTimeout(scrollTimer);
+
+    // When scrolling stops for 'delay' ms, restore the normal opacity
+    scrollTimer = setTimeout(() => {
+      document.body.style.setProperty("--bg-opacity", normalOpacity);
+    }, delay);
+  });
+})();
+</script>
+
+</body>
+</html>

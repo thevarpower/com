@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thevar Power — Our Location</title>
+
+<style>
+/* Base look */
+body{font-family:system-ui,sans-serif;margin:0;padding:0}
+.section-head{text-align:center;margin:2rem auto 1.5rem}
+.section-head h2{font-size:1.8rem;margin:0}
+.section-head .badge{
+  display:inline-block;margin-top:.3rem;padding:.3rem .8rem;font-size:.8rem;
+  border-radius:1rem;background:#e5e7eb;color:#111;
+}
+/* Navigation bar */
+.navbar{
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  padding:.8rem 1.5rem;
+  box-sizing:border-box;
+}
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+}
+.navbar a:hover{
+  text-decoration:underline;
+}
+.navbar { position:sticky; top:0; z-index:1000; }
+
+/* Card styling */
+.location-card{
+  max-width:900px;margin:0 auto 2rem;padding:1.5rem;border-radius:1rem;
+  background:rgba(255,255,255,0.7);border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+}
+[data-theme="dark"] .location-card{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#e5f0ff;
+}
+[data-theme="dark"] .badge{
+  background:rgba(255,255,255,0.15);
+  color:#e5f0ff;
+}
+/* Map styling */
+.map-container{
+  position:relative;
+  padding-bottom:56.25%; /* 16:9 ratio */
+  height:0;
+  overflow:hidden;
+  border-radius:0.75rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.map-container iframe{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;border:0;
+}
+</style>
+</head>
+
+<body>
+<header class="navbar">
+  <a href="index.html">Home</a>
+</header>
+
+<div class="section-head">
+  <h2>Our Location</h2>
+  <span class="badge">Find Us on Google Maps</span>
+</div>
+
+<div class="location-card">
+  <h3 style="margin-top:0;margin-bottom:1rem;font-size:1.3rem">
+    Thevar Power Office
+  </h3>
+  <p style="margin-top:0;margin-bottom:1rem">
+    Visit our office at: <br>
+    <strong>Thrissur, Kerala, India</strong>
+  </p>
+
+  <!-- Google Map Embed -->
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.770379345398!2d76.19098968510978!3d10.518743377939794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7efa7adb94501%3A0x6982301fe470c120!2sTHEVAR%20POWER%20Private%20Limited%20%E2%80%93%20Leading%20Solar%20Company%20in%20Thrissur!5e0!3m2!1sen!2sin!4v1758630244877!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+</body>
+</html>
