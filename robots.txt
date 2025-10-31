@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thevarpower.com/sitemap.xml
