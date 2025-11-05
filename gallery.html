@@ -3,15 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WWV09K89Y5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WWV09K89Y5');
-</script>
   <title>Thevar Power — Gallery</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <style>
@@ -83,13 +74,13 @@
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
-      aspect-ratio: 16/9;           /* <-- keeps a fixed landscape ratio */
+      aspect-ratio: 16/9;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;            /* <-- fills the box without distortion */
+      object-fit: cover;
       object-position: center;
       display: block;
       transition: transform 0.4s;
@@ -145,6 +136,27 @@
     @media (max-width: 560px){
       .gallery { grid-template-columns: 1fr; }
     }
+
+    /* ===== VIDEO LINK SECTION ===== */
+    .video-link {
+      text-align: center;
+      margin-top: 20px;
+      background: #e0f2fe;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .video-link a {
+      color: #0369a1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .video-link a:hover {
+      color: #0284c7;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -162,43 +174,47 @@
     </nav>
   </header>
 
+  <!-- ✅ New top section to direct to video gallery -->
+  <div class="video-link">
+    🎥 Explore our <a href="video-gallery.html">Video Gallery</a> for real installation highlights!
+  </div>
+
   <main>
    <h1>Our Project Gallery</h1>
 <div class="gallery">
-<a href="#img1" class="gallery-item"><img src="sp20 (11).jpeg" alt="Best Solar Company in Thrissur - Thevar Power Solar Installation"></a>
-<a href="#img2" class="gallery-item"><img src="sp20 (12).jpeg" alt="Top Solar Panel Installation in Thrissur by Thevar Power"></a>
-<a href="#img3" class="gallery-item"><img src="sp20 (13).jpeg" alt="Best Solar Energy Solutions in Thrissur - Thevar Power"></a>
-<a href="#img4" class="gallery-item"><img src="sp4.jpeg" alt="Trusted Solar Company in Thrissur - Thevar Power Projects"></a>
-<a href="#img5" class="gallery-item"><img src="sp5.jpeg" alt="Best Solar Installation Company in Thrissur - Thevar Power"></a>
-<a href="#img6" class="gallery-item"><img src="sp6.jpeg" alt="Leading Solar Company in Thrissur Kerala - Thevar Power"></a>
-<a href="#img10" class="gallery-item"><img src="sp10.jfif" alt="Best Solar Energy Company in Thrissur - Thevar Power"></a>
-<a href="#img11" class="gallery-item"><img src="sp20 (10).jpeg" alt="Top Rated Solar Company in Thrissur - Thevar Power"></a>
-<a href="#img12" class="gallery-item"><img src="sp12.jfif" alt="Best Solar Panel Company in Thrissur - Thevar Power"></a>
-<a href="#img13" class="gallery-item"><img src="sp13.jfif" alt="Affordable Solar Installation in Thrissur by Thevar Power"></a>
-<a href="#img14" class="gallery-item"><img src="sp14.jfif" alt="Best Solar Power Company in Thrissur - Thevar Power"></a>
-<a href="#img15" class="gallery-item"><img src="sp15.jfif" alt="Trusted Solar Energy Provider in Thrissur - Thevar Power"></a>
-<a href="#img16" class="gallery-item"><img src="sp16.jpeg" alt="Best Solar Projects in Thrissur - Thevar Power"></a>
-<a href="#img17" class="gallery-item"><img src="sp17.jfif" alt="Best Solar Panel Installation Company in Thrissur - Thevar Power"></a>
-<a href="#img18" class="gallery-item"><img src="sp18.jpeg" alt="Leading Solar Energy Company in Thrissur - Thevar Power"></a>
+  <a href="#img1" class="gallery-item"><img src="sp20 (11).jpeg" alt="Project 1"></a>
+  <a href="#img2" class="gallery-item"><img src="sp20 (12).jpeg" alt="Project 2"></a>
+  <a href="#img3" class="gallery-item"><img src="sp20 (13).jpeg" alt="Project 3"></a>
+  <a href="#img4" class="gallery-item"><img src="sp4.jpeg" alt="Project 4"></a>
+  <a href="#img5" class="gallery-item"><img src="sp5.jpeg" alt="Project 5"></a>
+  <a href="#img6" class="gallery-item"><img src="sp6.jpeg" alt="Project 6"></a>
+  <a href="#img10" class="gallery-item"><img src="sp10.jfif" alt="Project 10"></a>
+  <a href="#img11" class="gallery-item"><img src="sp20 (10).jpeg" alt="Project 11"></a>
+  <a href="#img12" class="gallery-item"><img src="sp12.jfif" alt="Project 12"></a>
+  <a href="#img13" class="gallery-item"><img src="sp13.jfif" alt="Project 13"></a>
+  <a href="#img14" class="gallery-item"><img src="sp14.jfif" alt="Project 14"></a>
+  <a href="#img15" class="gallery-item"><img src="sp15.jfif" alt="Project 15"></a>
+  <a href="#img16" class="gallery-item"><img src="sp16.jpeg" alt="Project 16"></a>
+  <a href="#img17" class="gallery-item"><img src="sp17.jfif" alt="Project 17"></a>
+  <a href="#img18" class="gallery-item"><img src="sp18.jpeg" alt="Project 18"></a>
 </div>
 
 <!-- Modal Views -->
-<div class="modal" id="img1"><a href="#"><img src="sp20 (11).jpeg" alt="Best Solar Company in Thrissur - Thevar Power Solar Installation"></a></div>
-<div class="modal" id="img2"><a href="#"><img src="sp20 (12).jpeg" alt="Top Solar Panel Installation in Thrissur by Thevar Power"></a></div>
-<div class="modal" id="img3"><a href="#"><img src="sp20 (13).jpeg" alt="Best Solar Energy Solutions in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img4"><a href="#"><img src="sp4.jpeg" alt="Trusted Solar Company in Thrissur - Thevar Power Projects"></a></div>
-<div class="modal" id="img5"><a href="#"><img src="sp5.jpeg" alt="Best Solar Installation Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img6"><a href="#"><img src="sp6.jpeg" alt="Leading Solar Company in Thrissur Kerala - Thevar Power"></a></div>
-<div class="modal" id="img10"><a href="#"><img src="sp10.jfif" alt="Best Solar Energy Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img11"><a href="#"><img src="sp20 (10).jpeg" alt="Top Rated Solar Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img12"><a href="#"><img src="sp12.jfif" alt="Best Solar Panel Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img13"><a href="#"><img src="sp13.jfif" alt="Affordable Solar Installation in Thrissur by Thevar Power"></a></div>
-<div class="modal" id="img14"><a href="#"><img src="sp14.jfif" alt="Best Solar Power Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img15"><a href="#"><img src="sp15.jfif" alt="Trusted Solar Energy Provider in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img16"><a href="#"><img src="sp16.jpeg" alt="Best Solar Projects in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img17"><a href="#"><img src="sp17.jfif" alt="Best Solar Panel Installation Company in Thrissur - Thevar Power"></a></div>
-<div class="modal" id="img18"><a href="#"><img src="sp18.jpeg" alt="Leading Solar Energy Company in Thrissur - Thevar Power"></a></div>
-
+<div class="modal" id="img1"><a href="#"><img src="sp20 (11).jpeg" alt="Project 1"></a></div>
+<div class="modal" id="img2"><a href="#"><img src="sp20 (12).jpeg" alt="Project 2"></a></div>
+<div class="modal" id="img3"><a href="#"><img src="sp20 (13).jpeg" alt="Project 3"></a></div>
+<div class="modal" id="img4"><a href="#"><img src="sp4.jpeg" alt="Project 4"></a></div>
+<div class="modal" id="img5"><a href="#"><img src="sp5.jpeg" alt="Project 5"></a></div>
+<div class="modal" id="img6"><a href="#"><img src="sp6.jpeg" alt="Project 6"></a></div>
+<div class="modal" id="img10"><a href="#"><img src="sp10.jfif" alt="Project 10"></a></div>
+<div class="modal" id="img11"><a href="#"><img src="sp20 (10).jpeg" alt="Project 11"></a></div>
+<div class="modal" id="img12"><a href="#"><img src="sp12.jfif" alt="Project 12"></a></div>
+<div class="modal" id="img13"><a href="#"><img src="sp13.jfif" alt="Project 13"></a></div>
+<div class="modal" id="img14"><a href="#"><img src="sp14.jfif" alt="Project 14"></a></div>
+<div class="modal" id="img15"><a href="#"><img src="sp15.jfif" alt="Project 15"></a></div>
+<div class="modal" id="img16"><a href="#"><img src="sp16.jpeg" alt="Project 16"></a></div>
+<div class="modal" id="img17"><a href="#"><img src="sp17.jfif" alt="Project 17"></a></div>
+<div class="modal" id="img18"><a href="#"><img src="sp18.jpeg" alt="Project 18"></a></div>
 
   <footer>
     © <span id="year"></span> Thevar Power. All rights reserved.
@@ -209,5 +225,3 @@
   </script>
 </body>
 </html>
-
-
