@@ -490,7 +490,7 @@ body::before {
         <span class="badge">No obligation • Takes 1 minute</span>
       </div>
       <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
-        <form action="mailto:info@thevarpower.com" method="post" enctype="text/plain" class="card" id="leadForm">
+        <form class="card" id="leadForm">
           <div class="split">
             <label>
               <span>Name</span>
@@ -533,7 +533,7 @@ body::before {
         <aside class="card">
           <h4>Contact</h4>
           <p class="muted">Thevar Power Pvt Ltd<br>Thrissur, Kerala</p>
-          <p><strong>✉️</strong> info@thevarpower.com<br><strong>📞</strong> +91 93834 00002<br><strong>🕒</strong> Mon–Sat, 9:30am–6pm</p>
+          <p><strong>✉️</strong> info@thevarpower.com<br><strong>📞</strong> +91 759400 4440<br><strong>🕒</strong> Mon–Sat, 9:30am–6pm</p>
           <div class="divider"></div>
           <h4>Why choose us?</h4>
           <ul>
@@ -612,6 +612,28 @@ body::before {
     </div>
   </div>
 
+    <script>
+  document.getElementById("leadForm").onsubmit = function(e){
+  e.preventDefault();
+
+  let name = document.querySelector('[name="name"]').value;
+  let phone = document.querySelector('[name="phone"]').value;
+  let city = document.querySelector('[name="city"]').value;
+  let bill = document.querySelector('[name="bill"]').value;
+  let message = document.querySelector('[name="message"]').value;
+
+  let text =
+  "New Solar Enquiry%0A%0A" +
+  "Name: " + name + "%0A" +
+  "Phone: " + phone + "%0A" +
+  "City: " + city + "%0A" +
+  "Bill: " + bill + "%0A" +
+  "Message: " + message;
+
+  window.open("https://wa.me/917594004440?text=" + text);
+  }
+  </script>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
@@ -620,8 +642,8 @@ body::before {
 
   <!-- Floating Actions -->
   <div class="floating">
-    <a class="btn btn-primary" href="https://wa.me/919383400002" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
-    <a class="btn btn-ghost" href="tel:+919383400002" aria-label="Call us">Call</a>
+    <a class="btn btn-primary" href="https://wa.me/917594004440" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+917594004440" aria-label="Call us">Call</a>
   </div>
 
   
@@ -681,7 +703,6 @@ body::before {
 
 </body>
 </html>
-
 
 
 
